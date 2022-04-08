@@ -167,9 +167,10 @@ resource "google_cloud_run_service" "default" {
 
     metadata {
       annotations = {
-        "autoscaling.knative.dev/maxScale" = "2"
-        # "autoscaling.knative.dev/minScale"      = "1" # enable if cold starts are an issue
+        "autoscaling.knative.dev/maxScale"      = "2"
+        "autoscaling.knative.dev/minScale"      = "1"
         "run.googleapis.com/cloudsql-instances" = google_sql_database_instance.default.connection_name
+        "run.googleapis.com/client-name"        = "terraform"
       }
     }
   }
