@@ -167,7 +167,7 @@ resource "google_cloud_run_service" "default" {
 
     metadata {
       annotations = {
-        "autoscaling.knative.dev/maxScale"      = "2"
+        "autoscaling.knative.dev/maxScale" = "2"
         # "autoscaling.knative.dev/minScale"      = "1" # enable if cold starts are an issue
         "run.googleapis.com/cloudsql-instances" = google_sql_database_instance.default.connection_name
       }
@@ -249,6 +249,12 @@ resource "google_cloud_run_domain_mapping" "default" {
 resource "google_iap_brand" "default" {
   support_email     = var.team
   application_title = var.service_name
+
+  lifecycle {
+    ignore_changes = [
+      org_internal_only
+    ]
+  }
 }
 
 output "_info-google_iap_client" {
@@ -261,6 +267,10 @@ output "_info-google_iap_client" {
 # This restriction is due to the existing APIs and not lack of support in this tool.
 #
 # https://console.cloud.google.com/apis/credentials/oauthclient
+#
+# Change google_iap_brand to external via:
+# https://console.cloud.google.com/apis/credentials/consent
+#
 ###
 EOF
 }
