@@ -1,0 +1,13 @@
+/tmp
+/.DS_Store
+.terraform
+id_rsa
+tmp
+.idea
+.terragrunt-cache
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate*
+
+.env*
+!.env.example

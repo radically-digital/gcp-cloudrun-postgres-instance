@@ -1,0 +1,15 @@
+project: rad-wiki
+location: europe-west1
+team: hello@radically.digital
+service_name: rad-wiki
+image_name: wiki
+container_port: 3000
+domain: wiki.radically.digital
+
+service_api_list:
+  - compute
+  - run
+  - artifactregistry
+  - sqladmin
+  - iamcredentials
+  - iap
