@@ -1,4 +1,4 @@
-# Radically Digital Wiki - Infrastructure
+# [Radically Digital Wiki](https://wiki.radically.digital) - Infrastructure
 
 ---
 
@@ -48,11 +48,10 @@ terragrunt [init|plan|apply]
 
 ## Upload latest wikijs image
 
-````bash
+```bash
 sh ./scripts/image-exchange.sh
 ```
 
 <!-- MARKDOWN REFERENCES -->
 
 [asdf vm]: https://asdf-vm.com/
-````
