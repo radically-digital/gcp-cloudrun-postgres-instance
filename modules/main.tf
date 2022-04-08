@@ -171,6 +171,7 @@ resource "google_cloud_run_service" "default" {
         "autoscaling.knative.dev/minScale"      = "1"
         "run.googleapis.com/cloudsql-instances" = google_sql_database_instance.default.connection_name
         "run.googleapis.com/client-name"        = "terraform"
+        "run.googleapis.com/cpu-throttling"     = "false" # always on https://cloud.google.com/run/docs/configuring/cpu-allocation
       }
     }
   }
